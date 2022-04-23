@@ -13,11 +13,8 @@ First you need to install Haxe and HaxeFlixel. I'm too lazy to write and keep up
 Other installations you'd need is the additional libraries, a fully updated list will be in `Project.xml` in the project root. Currently, these are all of the things you need to install:
 ```
 flixel
-
 flixel-addons
-
 flixel-ui
-
 hscript
 ```
 
@@ -42,3 +39,10 @@ At the moment, you can optionally fix some bugs regarding the engine:
 2. A text rendering bug (mainly noticeable in the story menu under tracks)
 
 - Run `haxelib git openfl https://github.com/openfl/openfl` in the terminal/command-prompt.
+
+## Credits
+
+- [NinjaMuffin99](https://twitter.com/ninja_muffin99) - Programmer
+- [PhantomArcade](https://twitter.com/phantomarcade3k) and [Evilsk8r](https://twitter.com/evilsk8r) - Artist
+- [KawaiSprite](https://twitter.com/kawaisprite) - Musician
+- [TheoDev](https://github.com/TheoPortz) - Theo Engine Developer
