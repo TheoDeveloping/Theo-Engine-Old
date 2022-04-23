@@ -6,7 +6,6 @@ import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import Config;
-import ui.FlxVirtualPad;
 
 import flixel.util.FlxSave;
 
@@ -14,13 +13,6 @@ class OptionsMenu extends MusicBeatState
 {
 	var selector:FlxText;
 	var curSelected:Int = 0;
-
-	var _pad:FlxVirtualPad;
-
-	var UP_P:Bool;
-	var DOWN_P:Bool;
-	var BACK:Bool;
-	var ACCEPT:Bool;
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
@@ -53,15 +45,9 @@ class OptionsMenu extends MusicBeatState
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 		}
 
-		_pad = new FlxVirtualPad(UP_DOWN, A_B);
-		_pad.alpha = 0.75;
-		this.add(_pad);
-		
-		var UP_P = _pad.buttonUp.justPressed;
-		var DOWN_P = _pad.buttonDown.justPressed;
-
-		var ACCEPT = _pad.buttonA.justPressed;
-		var BACK = _pad.buttonB.justPressed;
+		#if mobileC
+		addVirtualPad(UP_DOWN, A_B);
+		#end
 
 		changeSelection();
 		
@@ -92,18 +78,15 @@ class OptionsMenu extends MusicBeatState
 			}
 		}
 
-		if (UP_P)
+		if (controls.BACK #if android || FlxG.android.justReleased.BACK #end) {
+			FlxG.switchState(new MainMenuState());
+		}
+
+		if (controls.UP_P)
 			changeSelection(-1);
-		if (DOWN_P)
+		if (controls.DOWN_P)
 			changeSelection(1);
-			
-		#if android
-		BACK = _pad.buttonB.justPressed || FlxG.android.justReleased.BACK;
-		#else
-		BACK = _pad.buttonB.justPressed;
-		#end
-			
-		ACCEPT = _pad.buttonA.justReleased;
+
 	}
 
 	function changeSelection(change:Int = 0)
