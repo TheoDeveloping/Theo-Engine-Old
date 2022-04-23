@@ -90,9 +90,13 @@ class OptionsMenu extends MusicBeatState
 		}
 
 		if (controls.UP_P)
+		{
 			changeSelection(-1);
+		}
 		if (controls.DOWN_P)
+		{
 			changeSelection(1);
+		}
 			
 		#if android
 		BACK = _pad.buttonB.justPressed || FlxG.android.justReleased.BACK;
