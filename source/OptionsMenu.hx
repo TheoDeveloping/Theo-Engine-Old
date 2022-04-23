@@ -92,8 +92,6 @@ class OptionsMenu extends MusicBeatState
 			}
 		}
 
-	}
-
 		if (UP_P)
 			changeSelection(-1);
 		if (DOWN_P)
