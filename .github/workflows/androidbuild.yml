@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: 0.4.1
+name: 0.4.2
 
 # Controls when the action will run. 
 
@@ -132,7 +132,7 @@ jobs:
 
           haxelib git extension-webm https://github.com/KadeDev/extension-webm
           
-          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+
 
           haxelib list
 
