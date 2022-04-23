@@ -64,7 +64,8 @@ class OptionsMenu extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		if (controls.ACCEPT)
+
+		if (ACCEPT)
 		{
 			var daSelected:String = menuItems[curSelected];
 
@@ -100,6 +101,10 @@ class OptionsMenu extends MusicBeatState
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeSelection(1);
+			}
+			if (ACCEPT)
+			{
+			}
 			}
 
 			#if android
