@@ -27,7 +27,7 @@ Other installations you'd need is the additional libraries, a fully updated list
 
 
 
-
+```
 flixel
 
 
@@ -41,7 +41,7 @@ flixel-ui
 
 
 hscript
-
+```
 
 
 
