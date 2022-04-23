@@ -65,7 +65,7 @@ class OptionsMenu extends MusicBeatState
 	{
 		super.update(elapsed);
 
-		if (ACCEPT)
+		if (_pad.buttonA.justPressed)
 		{
 			var daSelected:String = menuItems[curSelected];
 
