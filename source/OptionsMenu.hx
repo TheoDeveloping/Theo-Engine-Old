@@ -49,12 +49,12 @@ class OptionsMenu extends MusicBeatState
 		}
 
 		#if mobileC
-		addVirtualPad(UP_DOWN, A_B);
+		addVirtualPad(UP_DOWN, A);
 		#end
 
 		changeSelection();
 
-		_pad = new FlxVirtualPad(UP_DOWN, A_B);
+		_pad = new FlxVirtualPad(UP_DOWN, A);
 		_pad.alpha = 0.75;
 		this.add(_pad);
 		
@@ -65,7 +65,7 @@ class OptionsMenu extends MusicBeatState
 	{
 		super.update(elapsed);
 
-		if (ACCEPT)
+		if (ACCEPT_PAD)
 		{
 			var daSelected:String = menuItems[curSelected];
 
@@ -88,8 +88,7 @@ class OptionsMenu extends MusicBeatState
 
 			var UP_PAD = _pad.buttonUp.justPressed;
 			var DOWN_PAD = _pad.buttonDown.justPressed;
-			var BACK = _pad.buttonB.justPressed;
-			var ACCEPT = _pad.buttonA.justPressed;
+			var ACCEPT_PAD = _pad.buttonA.justPressed;
 
 			if (UP_PAD)
 			{
@@ -102,13 +101,9 @@ class OptionsMenu extends MusicBeatState
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeSelection(1);
 			}
-			if (ACCEPT)
-			{
-			}
-			}
 
 			#if android
-			if (BACK || FlxG.android.justReleased.BACK)
+			if (FlxG.android.justReleased.BACK)
 			{
 				FlxG.switchState(new MainMenuState());
 			}
