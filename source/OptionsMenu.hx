@@ -108,7 +108,6 @@ class OptionsMenu extends MusicBeatState
 				FlxG.switchState(new MainMenuState());
 			}
 			#end
-		}
 
 		if (controls.UP)
 			changeSelection(-1);
