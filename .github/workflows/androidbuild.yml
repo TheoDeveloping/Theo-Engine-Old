@@ -132,7 +132,6 @@ jobs:
 
           haxelib git extension-webm https://github.com/KadeDev/extension-webm.git
           
-          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc.git
        
           haxelib list
 
