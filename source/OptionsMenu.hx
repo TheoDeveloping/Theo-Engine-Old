@@ -5,7 +5,6 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
-import ui.FlxVirtualPad;
 import Config;
 
 import flixel.util.FlxSave;
@@ -20,8 +19,6 @@ class OptionsMenu extends MusicBeatState
 	var menuItems:Array<String> = ['preferences', 'controls', 'discord', 'credits', 'about', 'exit'];
 
 	var notice:FlxText;
-	
-	var _pad:FlxVirtualPad;
 
 	override function create()
 	{
@@ -49,14 +46,10 @@ class OptionsMenu extends MusicBeatState
 		}
 
 		#if mobileC
-		addVirtualPad(UP_DOWN, A);
+		addVirtualPad(UP_DOWN, A_B);
 		#end
 
 		changeSelection();
-
-		_pad = new FlxVirtualPad(UP_DOWN, A);
-		_pad.alpha = 0.75;
-		this.add(_pad);
 		
 		super.create();
 	}
@@ -64,8 +57,7 @@ class OptionsMenu extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-
-		if (_pad.buttonA.justPressed)
+		if (controls.ACCEPT)
 		{
 			var daSelected:String = menuItems[curSelected];
 
@@ -86,33 +78,13 @@ class OptionsMenu extends MusicBeatState
 			}
 		}
 
-			var UP_PAD = _pad.buttonUp.justPressed;
-			var DOWN_PAD = _pad.buttonDown.justPressed;
-			var BACK = _pad.buttonB.justPressed;
-			var ACCEPT = _pad.buttonA.justPressed;
+		if (controls.BACK #if android || FlxG.android.justReleased.BACK #end) {
+			FlxG.switchState(new MainMenuState());
+		}
 
-			if (UP_PAD)
-			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
-				changeSelection(-1);
-			}
-
-			if (DOWN_PAD)
-			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
-				changeSelection(1);
-			}
-
-			#if android
-			if (FlxG.android.justReleased.BACK)
-			{
-				FlxG.switchState(new MainMenuState());
-			}
-			#end
-
-		if (controls.UP)
+		if (controls.UP_P)
 			changeSelection(-1);
-		if (controls.DOWN)
+		if (controls.DOWN_P)
 			changeSelection(1);
 
 	}
