@@ -40,9 +40,18 @@ At the moment, you can optionally fix some bugs regarding the engine:
 
 - Run `haxelib git openfl https://github.com/openfl/openfl` in the terminal/command-prompt.
 
+- Read More Of Building Game In [Friday Night Funkin' Official Source Code](https://github.com/ninjamuffin99/Funkin)
+
+- Read More Of Android Building Game In [Friday Night Funkin' Android Source Code](https://github.com/luckydog7/Funkin-android)
+
 ## Credits
 
 - [NinjaMuffin99](https://twitter.com/ninja_muffin99) - Programmer
 - [PhantomArcade](https://twitter.com/phantomarcade3k) and [Evilsk8r](https://twitter.com/evilsk8r) - Artist
 - [KawaiSprite](https://twitter.com/kawaisprite) - Musician
 - [TheoDev](https://github.com/TheoPortz) - Theo Engine Developer
+- [EstoyAburridow](https://twitter.com/EstoyAburridop) - Time Bar Creator
+- [ElArabe98](https://www.youtube.com/channel/UCi_xw_cLbN_T6xoFYqKlAeA) - Logo Bumpin Animator
+- [TwinGamerGuys](https://youtube.com/channel/UCadEWq_aCTBqD05iGgZfhiQ) - Code Helper
+
+• Thanks Guys!!
