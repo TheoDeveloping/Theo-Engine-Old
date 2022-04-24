@@ -77,8 +77,6 @@ class OptionsMenu extends MusicBeatState
 					FlxG.switchState(new options.CustomControlsState());
 				case "discord":
 					FlxG.openURL('https://discord.gg/XUPes5Aap3');
-				case "credits":
-					FlxG.switchState(new options.CreditsState());
 				case "about":
 					FlxG.switchState(new options.AboutState());
 				case "exit":
