@@ -1795,7 +1795,7 @@ class PlayState extends MusicBeatState
 					daNote.destroy();
 				}
 				
-			});
+			}
 		}
 
 		if (!inCutscene)
