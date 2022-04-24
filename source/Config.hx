@@ -26,13 +26,24 @@ class Config {
         if (save.data.isdownscroll != null) return save.data.isdownscroll;
         return false;
     }
+    
+    public function setghost(?value:Bool):Bool {
+		if (save.data.isghost == null) save.data.isghost = false;
+		
+		save.data.isghost = !save.data.isghost;
+		save.flush();
+        return save.data.isghost;
+	}
 
+    public function getghost():Bool {
+        if (save.data.isghost != null) return save.data.isghost;
+        return false;
+    }
     public function getcontrolmode():Int {
         // load control mode num from FlxSave
 		if (save.data.buttonsmode != null) return save.data.buttonsmode[0];
         return 0;
     }
-
     public function setcontrolmode(mode:Int = 0):Int {
         // save control mode num from FlxSave
 		if (save.data.buttonsmode == null) save.data.buttonsmode = new Array();
