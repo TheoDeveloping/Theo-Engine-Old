@@ -28,7 +28,7 @@ class PreferencesMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['set fps', 'downscroll: off', 'About'];
+	var menuItems:Array<String> = ['set fps', 'downscroll: off', 'ghost tapping: off', 'exit'];
 
 	var _pad:FlxVirtualPad;
 
@@ -58,6 +58,9 @@ class PreferencesMenu extends MusicBeatState
 		if (config.getdownscroll()){
 			menuItems[menuItems.indexOf('downscroll: off')] = 'downscroll: on';
 		}
+		if (config.getghost()){
+			menuItems[menuItems.indexOf('ghost tapping: off')] = 'ghost tapping: on';
+		}
 
 		for (i in 0...menuItems.length)
 		{ 
@@ -68,7 +71,7 @@ class PreferencesMenu extends MusicBeatState
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 		}
 
-		_pad = new FlxVirtualPad(UP_DOWN, A_B);
+		_pad = new FlxVirtualPad(UP_DOWN, A);
 		_pad.alpha = 0.75;
 		this.add(_pad);
 		
@@ -100,16 +103,17 @@ class PreferencesMenu extends MusicBeatState
 			{
 				case "config":
 					trace("hello");
-				
 				case "set fps":
 					insubstate = true;
 					openSubState(new options.SetFpsSubState());
-				
 				case "downscroll: on" | "downscroll: off":
 					config.setdownscroll();
 					FlxG.resetState();
-				case "credits":
-					FlxG.switchState(new options.CreditsState());
+				case "ghost tapping: on" | "ghost tapping: off":
+					config.setghost();
+					FlxG.resetState();
+				case "exit":
+					FlxG.switchState(new MainMenuState());
 			}
 		}
 
