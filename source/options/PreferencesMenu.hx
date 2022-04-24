@@ -58,7 +58,7 @@ class PreferencesMenu extends MusicBeatState
 		if (config.getdownscroll()){
 			menuItems[menuItems.indexOf('downscroll: off')] = 'downscroll: on';
 		}
-		if (config.getghost()){
+		if (!config.getghost()){
 			menuItems[menuItems.indexOf('ghost tapping: off')] = 'ghost tapping: on';
 		}
 
