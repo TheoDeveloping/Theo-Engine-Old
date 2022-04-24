@@ -113,7 +113,7 @@ class PreferencesMenu extends MusicBeatState
 					config.setghost();
 					FlxG.resetState();
 				case "exit":
-					FlxG.switchState(new MainMenuState());
+					FlxG.switchState(new OptionsMenu());
 			}
 		}
 
@@ -122,7 +122,7 @@ class PreferencesMenu extends MusicBeatState
 		else
 		{
 			if (BACK)
-				FlxG.switchState(new MainMenuState());
+				FlxG.switchState(new OptionsMenu());
 			if (UP_P)
 				changeSelection(-1);
 			if (DOWN_P)
