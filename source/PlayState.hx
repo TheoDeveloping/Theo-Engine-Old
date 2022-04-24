@@ -1782,7 +1782,7 @@ class PlayState extends MusicBeatState
 				if (daNote.y < -daNote.height && !downscroll_isenabled || (daNote.y >= strumLine.y + 106) && downscroll_isenabled)
 				{
 					if (daNote.tooLate || !daNote.wasGoodHit)
-
+					{
 						noteMiss(daNote.noteData);
 						vocals.volume = 0;
 					}
@@ -1795,7 +1795,7 @@ class PlayState extends MusicBeatState
 					daNote.destroy();
 				}
 				
-			}
+			});
 		}
 
 		if (!inCutscene)
