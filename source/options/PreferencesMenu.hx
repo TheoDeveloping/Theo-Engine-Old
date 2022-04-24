@@ -58,9 +58,10 @@ class PreferencesMenu extends MusicBeatState
 		if (config.getdownscroll()){
 			menuItems[menuItems.indexOf('downscroll: off')] = 'downscroll: on';
 		}
-		if (config.getghost()){
-			menuItems[menuItems.indexOf('ghost tapping: off')] = 'ghost tapping: on';
-		}
+		//to start it / to end it xD
+		if (!config.getghost()){
+            menuItems[menuItems.indexOf('ghost tapping: off')] = 'ghost tapping: on';
+        }
 
 		for (i in 0...menuItems.length)
 		{ 
@@ -86,11 +87,11 @@ class PreferencesMenu extends MusicBeatState
 			UP_P = _pad.buttonUp.justReleased;
 			DOWN_P = _pad.buttonDown.justReleased;
 
-			/*#if android
+			#if android
 			BACK = _pad.buttonB.justPressed || FlxG.android.justReleased.BACK;
 			#else
 			BACK = _pad.buttonB.justPressed;
-			#end */
+			#end
 			
 			ACCEPT = _pad.buttonA.justReleased;
 		}
@@ -109,7 +110,7 @@ class PreferencesMenu extends MusicBeatState
 				case "downscroll: on" | "downscroll: off":
 					config.setdownscroll();
 					FlxG.resetState();
-				case "ghost tapping: off" | "ghost tapping: on":
+				case 'ghost tapping: off' | "ghost tapping: off":
 					config.setghost();
 					FlxG.resetState();
 				case "exit":
