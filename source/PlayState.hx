@@ -151,6 +151,8 @@ class PlayState extends MusicBeatState
 
 	var config:Config = new Config();
 	var downscroll_isenabled:Bool = false;
+	
+	var ghost_isenabled:Bool = true;
 
 	override public function create()
 	{
@@ -161,7 +163,8 @@ class PlayState extends MusicBeatState
 		// part of mobile controls in 750 line
 		// get downscroll settings
 		downscroll_isenabled = config.getdownscroll();
-
+	
+		ghost_isenabled = config.getghost();
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -1780,7 +1783,10 @@ class PlayState extends MusicBeatState
 				{
 					if (daNote.tooLate || !daNote.wasGoodHit)
 					{
-						noteMiss(daNote.noteData);
+					    if (!ghost_isenabled)
+					    {
+						    noteMiss(daNote.noteData);
+					    }
 						vocals.volume = 0;
 					}
 
@@ -2317,7 +2323,8 @@ class PlayState extends MusicBeatState
 		var downP = controls.DOWN_P;
 		var leftP = controls.LEFT_P;
 		#end
-
+        
+        if (!ghost_isenabled){
 		if (leftP)
 			noteMiss(0);
 		if (downP)
@@ -2326,6 +2333,7 @@ class PlayState extends MusicBeatState
 			noteMiss(2);
 		if (rightP)
 			noteMiss(3);
+        }
 	}
 
 	function noteCheck(keyP:Bool, note:Note):Void

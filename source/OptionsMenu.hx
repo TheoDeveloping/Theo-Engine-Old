@@ -5,6 +5,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
+import ui.FlxVirtualPad;
 import Config;
 
 import flixel.util.FlxSave;
@@ -16,9 +17,11 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['preferences', 'controls', 'discord', 'credits', 'about', 'exit'];
+	var menuItems:Array<String> = ['preferences', 'controls', 'discord', 'about', 'exit'];
 
 	var notice:FlxText;
+	
+	var _pad:FlxVirtualPad;
 
 	override function create()
 	{
@@ -46,10 +49,14 @@ class OptionsMenu extends MusicBeatState
 		}
 
 		#if mobileC
-		addVirtualPad(UP_DOWN, A_B);
+		addVirtualPad(UP_DOWN, A);
 		#end
 
 		changeSelection();
+
+		_pad = new FlxVirtualPad(UP_DOWN, A);
+		_pad.alpha = 0.75;
+		this.add(_pad);
 		
 		super.create();
 	}
@@ -57,7 +64,8 @@ class OptionsMenu extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		if (controls.ACCEPT)
+
+		if (_pad.buttonA.justPressed)
 		{
 			var daSelected:String = menuItems[curSelected];
 
@@ -68,7 +76,7 @@ class OptionsMenu extends MusicBeatState
 				case "controls":
 					FlxG.switchState(new options.CustomControlsState());
 				case "discord":
-					FlxG.openURL('https://discord.gg/eGwJnUvZ9H');
+					FlxG.openURL('https://discord.gg/XUPes5Aap3');
 				case "credits":
 					FlxG.switchState(new options.CreditsState());
 				case "about":
@@ -78,13 +86,33 @@ class OptionsMenu extends MusicBeatState
 			}
 		}
 
-		if (controls.BACK #if android || FlxG.android.justReleased.BACK #end) {
-			FlxG.switchState(new MainMenuState());
-		}
+			var UP_PAD = _pad.buttonUp.justPressed;
+			var DOWN_PAD = _pad.buttonDown.justPressed;
+			var BACK = _pad.buttonB.justPressed;
+			var ACCEPT = _pad.buttonA.justPressed;
 
-		if (controls.UP_P)
+			if (UP_PAD)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeSelection(-1);
+			}
+
+			if (DOWN_PAD)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeSelection(1);
+			}
+
+			#if android
+			if (FlxG.android.justReleased.BACK)
+			{
+				FlxG.switchState(new MainMenuState());
+			}
+			#end
+
+		if (controls.UP)
 			changeSelection(-1);
-		if (controls.DOWN_P)
+		if (controls.DOWN)
 			changeSelection(1);
 
 	}
