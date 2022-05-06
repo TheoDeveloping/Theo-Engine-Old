@@ -1,6 +1,5 @@
 package;
 
-import ui.PreferencesMenu;
 import shaderslmfao.BuildingShaders;
 import shaderslmfao.ColorSwap;
 #if desktop
@@ -71,7 +70,6 @@ class TitleState extends MusicBeatState
 
 		FlxG.save.bind('funkin', 'ninjamuffin99');
 
-		PreferencesMenu.initPrefs();
 		PlayerSettings.init();
 		Highscore.load();
 
