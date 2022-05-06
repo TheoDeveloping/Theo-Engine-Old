@@ -131,7 +131,8 @@ jobs:
           haxelib git AndroidTools https://github.com/jigsaw-4277821/AndroidTools.git   
 
           haxelib git extension-webm https://github.com/KadeDev/extension-webm.git
-          
+
+          haxelib git extension-webview https://github.com/jigsaw-4277821/extension-webview.git --quiet
        
           haxelib list
 
