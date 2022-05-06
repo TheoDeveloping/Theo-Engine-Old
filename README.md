@@ -1,4 +1,4 @@
-<p align="center">⚠️ <strong>WARNING: WIP!</strong> ⚠️<br>This project is still a work in progress.<br>You may look around and build the code yourself if you want, but don't expect anything to be finished or polished yet!</p>
+<p align="center">⚠️ <strong>WARNING!</strong> ⚠️<br>This engine is still a work in progress.<br>You may look around and build the code yourself if you want, but don't expect anything to be finished or polished yet!</p>
 
 # Friday Night Funkin' Theo Engine
 This Engine Promises Better Gameplay And Customization For A Better Gaming Experience, Adding Downscroll, Ghost Tapping, And More!, This Engine Is Inspired By [Kade Engine](https://github.com/KadeDev/Kade-Engine) And [Psych Engine](https://github.com/ShadowMario/FNF-PsychEngine).
