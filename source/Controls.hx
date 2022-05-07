@@ -1,5 +1,6 @@
 package;
 
+import mobilecontrols.Hitbox;
 import haxe.DynamicAccess;
 import haxe.Json;
 import haxe.ds.EnumValueMap;
@@ -405,7 +406,7 @@ class Controls extends FlxActionSet
 		action.add(input);
 	}
 
-	public function setHitBox(hitbox:FlxHitbox) 
+	public function setHitBox(hitbox:Hitbox) 
 	{
 		inline forEachBound(Control.NOTE_UP, (action, state) -> addbuttonNOTES(action, hitbox.buttonUp, state));
 		inline forEachBound(Control.NOTE_DOWN, (action, state) -> addbuttonNOTES(action, hitbox.buttonDown, state));
