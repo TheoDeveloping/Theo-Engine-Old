@@ -4,8 +4,8 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.group.FlxSpriteGroup;
 
-import ui.FlxVirtualPad;
-import ui.Hitbox;
+import mobilecontrols.FlxVirtualPad;
+import mobilecontrols.Hitbox;
 
 import Config;//webSettings.setMediaPlaybackRequiresUserGesture(false);	 xml android:usesCleartextTraffic="true"
 
