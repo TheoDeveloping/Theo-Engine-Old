@@ -1,4 +1,4 @@
-package ui;
+package mobilecontrols;
 
 import flixel.FlxG;
 import flixel.graphics.FlxGraphic;
