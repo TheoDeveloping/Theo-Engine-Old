@@ -16,7 +16,7 @@ import flixel.input.keyboard.FlxKey;
 #if android
 import flixel.group.FlxGroup;
 import mobilecontrols.Hitbox;
-import ui.FlxVirtualPad;
+import mobilecontrols.FlxVirtualPad;
 import flixel.ui.FlxButton;
 #end
 
