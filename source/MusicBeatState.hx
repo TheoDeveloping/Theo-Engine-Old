@@ -23,7 +23,7 @@ class MusicBeatState extends FlxUIState
 
 	#if android
 	var _virtualpad:FlxVirtualPad;
-	var androidc:AndroidControls;
+	var androidc:mobilecontrols.Mobilecontrols;
 	var trackedinputsUI:Array<FlxActionInput> = [];
 	var trackedinputsNOTES:Array<FlxActionInput> = [];
 	#end
@@ -41,14 +41,12 @@ class MusicBeatState extends FlxUIState
 
 	#if android
 	public function addAndroidControls() {
-                androidc = new AndroidControls();
+                androidc = new mobilecontrols.Mobilecontrols();
 
 		switch (androidc.mode)
 		{
 			case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
 				controls.setVirtualPadNOTES(androidc.vpad, FULL, NONE);
-			case DUO:
-				controls.setVirtualPadNOTES(androidc.vpad, DUO, NONE);
 			case HITBOX:
 				controls.setHitBox(androidc.hbox);
 			default:
